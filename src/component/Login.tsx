@@ -3,6 +3,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
+import { SCREEN } from "../constant/screen";
 
 const Login= () => {
   const [email, setEmail] = useState("");
@@ -14,12 +15,12 @@ const Login= () => {
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
 
-      navigate("/Home", { replace: true });
+      navigate(SCREEN.HOME, { replace: true });
     } catch (error) {}
   };
 // to navigate to sign up sceen
   const handleSignUp = () => {
-    navigate("/Signup", { replace: true });
+    navigate(SCREEN.SIGNUP, { replace: true });
   };
   return (
     <div className="loginContainer">

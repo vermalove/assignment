@@ -3,6 +3,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { SCREEN } from "../constant/screen";
 
 interface SignupFormProps {
   onSignup: (email: string, password: string) => void;
@@ -18,7 +19,7 @@ const Signup = () => {
   const handleSignup = async () => {
     try {
       await firebase.auth().createUserWithEmailAndPassword(email, password);
-      navigate("/login", { replace: true });
+      navigate(SCREEN.LOGIN, { replace: true });
     } catch (error) {
       console.error("Signup error:", error);
     }
@@ -41,7 +42,7 @@ const Signup = () => {
   };
   // navigate to login screen
   const handleLogin = () => {
-    navigate("/Login", { replace: true });
+    navigate(SCREEN.LOGIN, { replace: true });
   };
   return (
     <>

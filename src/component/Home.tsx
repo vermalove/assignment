@@ -7,6 +7,7 @@ import "firebase/auth";
 import AddTeam from "./AddTeam";
 import RecordList from "./RecordList";
 import { components } from 'react-select';
+import { SCREEN } from "../constant/screen";
 const Home = () => {
   const [routeToLogin, setRouteToLogin] = useState<any>();
 
@@ -18,7 +19,7 @@ const Home = () => {
   const handleLogout = async () => {
     try {
       await firebase.auth().signOut();
-      navigate("/login", { replace: true });
+      navigate(SCREEN.LOGIN, { replace: true });
     } catch {}
   };
   // to open popup on home page
