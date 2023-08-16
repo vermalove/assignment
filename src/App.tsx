@@ -1,16 +1,17 @@
-import React from "react";
+import React, { lazy } from "react";
 import firebase from "firebase/app"; // Import firebase/app
 import "firebase/auth"; // Import the authentication module
 import firebaseConfig from "./firebaseConfig"; // Correct the path to match your file structure
-import Login from "./component/Login";
-import Home from "./component/Home";
-import Signup from "./component/Signup";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { SCREEN } from "./constant/screen";
 firebase.initializeApp(firebaseConfig);
 
 const App= () => {
+  const Home = lazy(() => import("./component/Home"));
+const Login = lazy(() => import("./component/Login"));
+const Signup = lazy(() => import("./component/Signup"));
   return (
     <BrowserRouter>
       <Routes>

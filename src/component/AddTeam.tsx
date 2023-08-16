@@ -50,6 +50,15 @@ const AddTeam: React.FC<AddTeamProps> = (props: AddTeamProps) => {
     const date = `${current.getDate()}/${current.getMonth() +
       1}/${current.getFullYear()}`;
 
+      if (
+        formData.name === "" ||
+        formData.company === "" ||
+        formData.status === "" ||
+        formData.notes === ""
+      ) {
+        alert("Please fill out all required fields.");
+        return; // Don't proceed with saving
+      }
     formData.lastUpdate = date;
     const storedData = JSON.parse(localStorage.getItem("tableData") || "[]");
     setData(storedData);
@@ -77,6 +86,7 @@ const AddTeam: React.FC<AddTeamProps> = (props: AddTeamProps) => {
             name="name"
             value={formData.name}
             onChange={handleInputChange}
+            required
           />
         </div>
 
@@ -89,6 +99,7 @@ const AddTeam: React.FC<AddTeamProps> = (props: AddTeamProps) => {
             name="company"
             value={formData.company}
             onChange={handleInputChange}
+            required
           />
         </div>
 
@@ -101,6 +112,7 @@ const AddTeam: React.FC<AddTeamProps> = (props: AddTeamProps) => {
             name="status"
             value={formData.status}
             onChange={handleInputChange}
+            required
           />
         </div>
         <br />
@@ -111,6 +123,7 @@ const AddTeam: React.FC<AddTeamProps> = (props: AddTeamProps) => {
             name="notes"
             value={formData.notes}
             onChange={handleInputChange}
+            required
           />
         </div>
 

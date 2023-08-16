@@ -1,8 +1,8 @@
 
 export const SCREEN = {
-    HOME:"./home",
-LOGIN:"./Login",
-SIGNUP:"./Signup",
-MAIN:"./"
+    HOME:"/home",
+LOGIN:"/login",
+SIGNUP:"/signup",
+MAIN:"/"
 
 }
