@@ -1,0 +1,66 @@
+.App {
+  text-align: center;
+  margin: 2rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+input[type="text"] {
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 95%;
+
+}
+
+input[type="text"] {
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 95%;
+
+}
+
+textarea {
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 95%;
+}
+
+button {
+
+  border-radius: 10px;
+  height: 40px;
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  min-width: 100px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
