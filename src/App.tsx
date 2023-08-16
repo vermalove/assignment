@@ -7,16 +7,17 @@ import Home from "./component/Home";
 import Signup from "./component/Signup";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import { SCREEN } from "./constant/screen";
 firebase.initializeApp(firebaseConfig);
 
-const App: React.FC = () => {
+const App= () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={"/Home"} element={<Home />} />
-        <Route path={"/"} element={<Login />} />
-        <Route path={"/Login"} element={<Login />} />
-        <Route path={"/Signup"} element={<Signup />} />
+        <Route path={SCREEN.HOME} element={<Home />} />
+        <Route path={SCREEN.MAIN} element={<Login />} />
+        <Route path={SCREEN.LOGIN} element={<Login />} />
+        <Route path={SCREEN.SIGNUP} element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );
