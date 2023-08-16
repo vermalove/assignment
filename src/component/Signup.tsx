@@ -10,13 +10,16 @@ interface SignupFormProps {
 }
 
 const Signup = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
   const navigate = useNavigate();
 
   // to handle sign up in firebase with email and password
   const handleSignup = async () => {
+    const { email, password } = formData;
     try {
       await firebase.auth().createUserWithEmailAndPassword(email, password);
       navigate(SCREEN.LOGIN, { replace: true });
@@ -30,11 +33,18 @@ const Signup = () => {
       console.log("user", user);
     });
   }, []);
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   // pass email id and password to handleSubmit function
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === confirmPassword) {
+    if (formData.password === formData.confirmPassword) {
       handleSignup();
     } else {
       alert("Passwords don't match");
@@ -50,23 +60,26 @@ const Signup = () => {
         <h2> SIGN UP</h2>
         <input
           type="email"
+          name="email"
           placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={formData.email}
+          onChange={handleInputChange}
           required
         />
         <input
           type="password"
+          name="password"
           placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={formData.password}
+          onChange={handleInputChange}
           required
         />
         <input
           type="password"
+          name="confirmPassword"
           placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
+          value={formData.confirmPassword}
+          onChange={handleInputChange}
           required
         />
         <button type="submit">Sign Up</button>
