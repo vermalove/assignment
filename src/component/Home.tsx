@@ -14,7 +14,23 @@ const Home = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const navigate = useNavigate();
+useEffect(() => {
+  firebase.auth().onAuthStateChanged(user=>{
+    if(user===null)
+    {
+     navigate('/login',{replace:true});
+    }
+    })
+    
+   
 
+  return () => {
+    
+  }
+}, [])
+
+  
+  
 // to hanlde logout in firebase
   const handleLogout = async () => {
     try {
