@@ -8,6 +8,8 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+// to handle login func in firebase
   const handleLogin = async () => {
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
@@ -15,7 +17,7 @@ const Login: React.FC = () => {
       navigate("/Home", { replace: true });
     } catch (error) {}
   };
-
+// to navigate to sign up sceen
   const handleSignUp = () => {
     navigate("/Signup", { replace: true });
   };

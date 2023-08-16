@@ -6,6 +6,7 @@ import "./index.css";
 import "firebase/auth";
 import AddTeam from "./AddTeam";
 import RecordList from "./RecordList";
+import { components } from 'react-select';
 const Home = () => {
   const [routeToLogin, setRouteToLogin] = useState<any>();
 
@@ -13,25 +14,18 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {}, []);
-  //  firebase.auth().onAuthStateChanged(user=>{
-  //   setRouteToLogin(user)
-  //   })
-  //   if(routeToLogin===null)
-  //   {
-  //    navigate('/login',{replace:true});
-  //   }
-
+// to hanlde logout in firebase
   const handleLogout = async () => {
     try {
       await firebase.auth().signOut();
       navigate("/login", { replace: true });
     } catch {}
   };
+  // to open popup on home page
   const handleAddRecord = () => {
     setIsOpen(true);
   };
-  const recordData = (params: any) => {};
+  
   const onClose = () => {
     setIsOpen(false);
   };
@@ -49,12 +43,12 @@ const Home = () => {
           Logout
         </button>
       </div>
-
+{/* popup components */}
       <AddTeam
         isOpen={isOpen}
-        recordData={() => recordData}
         onClose={onClose}
       />
+      {/* show list of add team member */}
       <RecordList isOpen={isOpen} />
     </div>
   );

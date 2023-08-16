@@ -1,4 +1,4 @@
-// src/redux/store.ts
+// src/lib/store.ts
 import { configureStore } from '@reduxjs/toolkit';
 import recordReducer from './recordReducer';
 

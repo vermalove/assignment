@@ -1,4 +1,4 @@
-// src/reducers/recordReducer.ts
+// src/lib/recordReducer.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Record {

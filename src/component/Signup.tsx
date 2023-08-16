@@ -13,6 +13,8 @@ const Signup: React.FC = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
+
+  // to handle sign up in firebase with email and password
   const handleSignup = async () => {
     try {
       await firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -21,12 +23,14 @@ const Signup: React.FC = () => {
       console.error("Signup error:", error);
     }
   };
+  // to check auth of current user
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       console.log("user", user);
     });
   }, []);
 
+  // pass email id and password to handleSubmit function
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === confirmPassword) {
@@ -35,6 +39,7 @@ const Signup: React.FC = () => {
       alert("Passwords don't match");
     }
   };
+  // navigate to login screen
   const handleLogin = () => {
     navigate("/Login", { replace: true });
   };

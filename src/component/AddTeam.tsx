@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./index.css";
+// interface for FormData
 interface FormData {
   name: string;
   company: string;
@@ -7,13 +8,12 @@ interface FormData {
   notes: string;
   lastUpdate: string;
 }
-
+// interface for AddTeam components
 interface AddTeamProps {
   isOpen: boolean;
   onClose: () => void;
-  recordData: (param: any) => any;
 }
-
+// Add Team member components
 const AddTeam: React.FC<AddTeamProps> = (props: AddTeamProps) => {
   const [data, setData] = useState([]);
   const [formData, setFormData] = useState<FormData>({
@@ -23,7 +23,7 @@ const AddTeam: React.FC<AddTeamProps> = (props: AddTeamProps) => {
     notes: "",
     lastUpdate: "",
   });
-
+// to handle formdata in add team components
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -33,7 +33,7 @@ const AddTeam: React.FC<AddTeamProps> = (props: AddTeamProps) => {
       [name]: value,
     }));
   };
-
+// to handle cancel button in popup
   const handleCancel = () => {
     setFormData({
       name: "",
@@ -44,9 +44,8 @@ const AddTeam: React.FC<AddTeamProps> = (props: AddTeamProps) => {
     });
     props.onClose();
   };
-
+// to save input in localStorage 
   const handleSave = () => {
-    // Do something with the formData, e.g., send it to an API or perform an action
     const current = new Date();
     const date = `${current.getDate()}/${current.getMonth() +
       1}/${current.getFullYear()}`;
