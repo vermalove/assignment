@@ -35,6 +35,14 @@ const Signup = () => {
   }, []);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+    if (name === "email") {
+      // Use a regex pattern to validate the email format
+      const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      if (!emailPattern.test(value)) {
+        // Invalid email format
+        return;
+      }
+    }
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
