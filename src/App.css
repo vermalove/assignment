@@ -1,0 +1,60 @@
+/* Add your global styles here */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.signup-form {
+  width: 62%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+
+  top: 50px;
+  margin-top: 50px;
+
+  margin: 10px auto;
+}
+
+.signup-form input,
+.signup-form button {
+  display: block;
+
+  margin: 10px auto;
+  margin-bottom: 10px;
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.signup-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.login-page {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.landing-page {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
